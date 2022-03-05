@@ -12,5 +12,12 @@
   "devDependencies": {
     "express": "^4.17.3",
     "prisma": "^3.10.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.10.0",
+    "babel": "^6.23.0",
+    "http": "^0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.15"
   }
 }
