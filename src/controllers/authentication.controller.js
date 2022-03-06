@@ -17,12 +17,9 @@ export const login = async (request, response) => {
   });
 }
 
-export const register = (request, response) => {
-    var email = request.body.email;
-    var password = request.body.password;
+export const register = async (request, response) => {
+  const { email, password } = request.body;
+  const user = await UserModel.createOne({ email, password });
 
-    if (email == null || password == null) {
-        return response.status(400).json({'erreur': 'parametres manquant'})
-    }
-
+  response.status(201).json({ user });
 }
