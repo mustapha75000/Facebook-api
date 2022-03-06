@@ -15,7 +15,7 @@ export const findById = ({ id }) =>
   });
 
 export const createOne = async ({ content, title }) =>
-  prisma.article.create({
+  prisma.posts.create({
     data: {
       content,
       title,
