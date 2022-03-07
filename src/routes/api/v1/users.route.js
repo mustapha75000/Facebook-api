@@ -6,8 +6,8 @@ import * as userController from '../../../controllers/v1/user.controllers';
 const api = Router();
 
 api.get('/:id/posts',postController.getByAuthorId);
-api.get('/:id/profile',profileController.getById);
+api.get('/:id/profile',profileController.getUserById);
 api.patch('/:id/profile',profileController.upsertProfile);
-api.delete('/:id',userController.deleteById);
+api.delete('/:id',userController.deleteOneUserById);
 
 export default api;
