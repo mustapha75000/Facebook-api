@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import * as PostsController from '../../controllers/posts.controller';
+import * as PostsController from '../../../controllers/v1/posts.controllers';
 
 const api = Router();
 
-api.post('/', PostsController.createOne);
-api.get('/', PostsController.findAll);
-api.get('/:id', PostsController.findOne);
-api.put('/:id', PostsController.updateOne);
-api.delete('/:id', PostsController.deleteOne);
+api.get('/',PostsController.getAll);
+api.get('/:id',PostsController.getById);
+api.post('/',PostsController.createPosts);
+api.patch('/:id',PostsController.updatePosts);
+api.delete('/:id',PostsController.deleteOnebyID);
 
 export default api;

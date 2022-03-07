@@ -1,11 +1,13 @@
 import { Router } from 'express';
-import * as cController from '../../controllers/Users.controller';
+import * as profileController from '../../../controllers/v1/profile.controllers';
+import * as postController from '../../../controllers/v1/posts.controllers';
+import * as userController from '../../../controllers/v1/user.controllers';
 
 const api = Router();
 
-api.get('/:id/posts', Users.findAll);
-api.get('/:id/profile', Users.findOne);
-api.put('/:id/profile', Users.updateOne);
-api.delete('/:id', Users.deleteOne);
+api.get('/:id/posts',postController.getByAuthorId);
+api.get('/:id/profile',profileController.getById);
+api.patch('/:id/profile',profileController.upsertProfile);
+api.delete('/:id',userController.deleteById);
 
 export default api;

@@ -1,16 +1,14 @@
 import express from 'express';
-import routes from './routes';
-import { catchError } from './middlewares/catchError.middleware';
+import routes from './routes/main.js';
 
-export const launch = ({ protocol, host, port }) => {
+export const launch = ({ protocol, port, host }) => {
   const application = express();
 
   application.use(express.json());
   application.use(routes);
-  application.use(catchError());
 
   application.listen(
     port,
-    () => console.log(`Server started at ${protocol}://${host}:${port}`),
+    () => console.log(`API ready at ${protocol}://${host}:${port}`),
   );
 }
